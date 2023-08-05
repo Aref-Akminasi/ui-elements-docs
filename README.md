@@ -18,7 +18,14 @@ UI Elements is a customizable, extensible, and open-source library. Leverage its
 
 ### Links
 
-- Documentation: [Docs](https://aref-akminasi.github.io/ui-elements-docs/)
+- [Docs](https://aref-akminasi.github.io/ui-elements-docs/)
+- [npm](https://www.npmjs.com/package/ui-elements)
+
+### Install
+
+```
+npm i ui-elements
+```
 
 ### Built with
 
