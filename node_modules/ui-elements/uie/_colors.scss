@@ -1,0 +1,35 @@
+@use 'sass:math';
+
+@each $key, $val in $colors {
+  @if ($key != 'white' and $key != 'black') {
+    @for $i from 1 through 4 {
+      .bg-#{$key}-#{$i}00 {
+        background-color: lighten($val, 30% - ($i * 5%));
+      }
+      .text-#{$key}-#{$i}00 {
+        color: lighten($val, 30% - ($i * 5%));
+      }
+    }
+    @for $i from 5 through 9 {
+      .bg-#{$key}-#{$i}00 {
+        background-color: darken($val, ($i - 4) * 5%);
+      }
+      .text-#{$key}-#{$i}00 {
+        color: darken($val, ($i - 4) * 5%);
+      }
+    }
+    .bg-#{$key}-400 {
+      background-color: $val;
+    }
+    .text-#{$key}-400 {
+      color: $val;
+    }
+  } @else {
+    .bg-#{$key} {
+      background-color: $val;
+    }
+    .text-#{$key} {
+      color: $val;
+    }
+  }
+}

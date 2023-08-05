@@ -1,0 +1,78 @@
+%button {
+  font-size: $base-font-size;
+  cursor: pointer;
+  font-family: inherit;
+  padding: $base-padding $base-padding * 2;
+  transition: background-color $base-transition-duration;
+}
+
+@mixin button-edged($color: #fff) {
+  @extend %button;
+  background-color: $color;
+  color: $white;
+  border: none;
+}
+
+@mixin button-rounded($color: #fff) {
+  @extend %button;
+  border-radius: $base-border-radius;
+  background-color: $color;
+  color: $white;
+  border: none;
+}
+
+@mixin button-outline($color: #fff) {
+  @extend %button;
+  background-color: $white;
+  color: $black;
+  border: $base-border-thickness * 3 solid $color;
+}
+
+@mixin button-outline-rounded($color: #fff) {
+  @extend %button;
+  background-color: $white;
+  color: $black;
+  border: $base-border-thickness * 3 solid $color;
+  border-radius: $base-border-radius;
+}
+
+@each $key, $val in $colors {
+  .button-#{$key} {
+    @include button-edged($val);
+    &:active {
+      transform: scale(0.98);
+    }
+    &:hover {
+      background-color: darken($val, 10%);
+    }
+  }
+  .button-rounded-#{$key} {
+    @include button-rounded($val);
+    &:active {
+      transform: scale(0.98);
+    }
+    &:hover {
+      background-color: darken($val, 10%);
+    }
+  }
+  .button-outline-#{$key} {
+    @include button-outline($val);
+    &:active {
+      transform: scale(0.98);
+    }
+    &:hover {
+      background-color: $val;
+      color: $white;
+    }
+  }
+  .button-outline-rounded-#{$key} {
+    @include button-outline-rounded($val);
+    &:active {
+      transform: scale(0.98);
+    }
+    &:hover {
+      background-color: $val;
+      color: $white;
+    }
+  }
+}

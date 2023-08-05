@@ -1,0 +1,48 @@
+// theme colors
+$primary: #007bff !default;
+$danger: #d9534f !default;
+$next: #5cb85c !default;
+$error: #d9534f !default;
+$warning: #ffa500 !default;
+$info: #5bc0de !default;
+$succes: #28a745 !default;
+$disabled: #6c757d !default;
+$link: #0000ee !default;
+$white: #fff !default;
+$black: #000 !default;
+
+// color palette
+$colors: (
+  'primary': $primary,
+  'danger': $danger,
+  'next': $next,
+  'error': $error,
+  'warning': $warning,
+  'info': $info,
+  'succes': $succes,
+  'disabled': $disabled,
+  'link': $link,
+  'white': $white,
+  'black': $black,
+);
+
+// spacing
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+//borders
+$base-border-radius: 5px;
+$base-border-thickness: 1px;
+
+// box-shadow
+$base-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+
+// font sizes
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+
+// transition
+$base-transition-duration: 0.3s;

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafafa;
+}
+
+nav {
+  background-color: #e9f3ff;
+  display: flex;
+  position: fixed;
+  padding: 1rem;
+  width: 24rem;
+  height: 100vh;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 4rem;
+}
+.title-container {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 1rem;
+}
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+.menu ul {
+  list-style-type: circle;
+  padding-left: 2rem;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.docs {
+  padding: 3rem;
+  margin-left: 32rem;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  margin: 1rem 0;
+}
+
+.step {
+  font-family: 'Arial', 'sans-serif';
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.code {
+  font-family: 'Courier Prime', 'sans-serif';
+  padding: 1rem;
+  font-size: 0.8rem;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
+
+.container div {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 880px) {
+  .docs {
+    margin-left: 0;
+  }
+  nav {
+    display: none;
+  }
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="title-container">
+        <h1 class="title">UI Elements</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#grid-system">Grid System</a></li>
+        <li>
+          <a href="#elements">Elements</a>
+          <ul>
+            <li><a href="#colors">Colors</a></li>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#cards">Cards</a></li>
+            <li><a href="#form">Form</a></li>
+          </ul>
+        </li>
+        <li><a href="#configuration">Configuration</a></li>
+      </ul>
+    </nav>
+    <div class="docs">
+      <h2 id="getting-started">Getting Started</h2>
+      <ul>
+        <li class="step">1. Create a new folder <b>my-project</b></li>
+        <li class="step">2. Cd <b>my-project</b></li>
+        <li class="step">3. Using the terminal run the following command</li>
+        <li class="code">
+          npm i ui-elements gulp gulp-purgecss gulp-sass sass –save-dev
+        </li>
+        <li class="step">
+          4. Create <b>config.scss</b> file in the root directory of
+          <b>my-project</b>
+        </li>
+        <li class="step">
+          5. Create <b>index.scss</b> file in the root directory of
+          <b>my-project</b>
+        </li>
+        <li class="step">
+          6. Import the <b>config.scss</b> file and the
+          <b>UI Elements</b> library
+        </li>
+        <li class="code">
+          @import 'config.scss'; <br />
+          @import 'ui-elements/sass/index.scss';
+        </li>
+        <li class="step">
+          7. Create <b>gulpfile.js</b> file in the root directory of
+          <b>my-project</b>
+        </li>
+        <li class="step">
+          8. Paste the following in <b>gulpfile.js</b> file in order to watch
+          your changes and compile the styles.
+        </li>
+        <li class="code">
+          const { src, dest, watch, series } = require('gulp'); <br />
+          const sass = require('gulp-sass')(require('sass')); <br />
+          const purgecss = require('gulp-purgecss'); <br />
+          <br />
+          function buildStyles() { <br />
+          return src('index.scss') <br />
+          .pipe(sass({ includePaths: ['./node_modules'] })) <br />
+          .pipe(purgecss({ content: ['*.html'] })) <br />
+          .pipe(dest('css')); <br />
+          } <br />
+          <br />function watchTask() { <br />
+          watch(['config.scss', 'index.scss', '*.html'], buildStyles); <br />
+          } <br />
+          <br />
+          exports.default = series(buildStyles, watchTask);
+        </li>
+        <li class="step">
+          9. Create <b>index.html</b> file in the root directory of
+          <b>my-project</b>
+        </li>
+        <li class="step">
+          10. link the <b>index.html</b> file to the created styles by Gulp (you
+          don't have to create css folder with <b>index.css</b>, it will be auto
+          generated).
+        </li>
+        <li class="code">
+          &lt;link rel="stylesheet" href="css/index.css" /&gt;
+        </li>
+        <li class="step">
+          11. Run npx gulp in the terminal, in order to watch your changes
+        </li>
+        <li class="code">npx gulp</li>
+        <li class="step">
+          12. Add tags and <b>UI Elements</b> classes in the <b>index.html</b>
+        </li>
+      </ul>
+      <h2 id="grid-system">Grid System</h2>
+      <div class="container">
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #87cefa">
+          Grid item 1
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #ffb6c1">
+          Grid item 2
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #ffffe0">
+          Grid item 3
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #f08080">
+          Grid item 4
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #90ee90">
+          Grid item 5
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #e6e6fa">
+          Grid item 6
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #ffdab9">
+          Grid item 7
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #e0ffff">
+          Grid item 8
+        </div>
+        <div class="col-xl-4 col-lg-3 col-xs-12" style="background: #ccccff">
+          Grid item 9
+        </div>
+      </div>
+      <h3>Grid breakpoints</h3>
+      <p class="code">
+        'xs': min 0px <br />
+        'sm': min 640px <br />
+        'md': min 768px <br />
+        'lg': min 1024px <br />
+        'xl': min 1280px <br />
+      </p>
+      <h3>Grid classes</h3>
+      <p class="code">
+        col-xs-1 /*up to*/ col-xs-12 <br />
+        col-sm-1 /*up to*/ col-sm-12 <br />
+        col-md-1 /*up to*/ col-md-12 <br />
+        col-lg-1 /*up to*/ col-lg-12 <br />
+        col-xl-1 /*up to*/ col-xl-12 <br />
+      </p>
+      <h2 id="elements">Elements</h2>
+      <h3 id="colors">Colors</h3>
+      <p class="code">
+        /*Avaliable colors for text and backgrounds* <br />
+        <br />primary: #007bff
+        <br />
+        danger: #d9534f<br />
+        next: #5cb85c<br />
+        error: #d9534f<br />
+        warning: #ffa500<br />
+        info: #5bc0de<br />
+        succes: #28a745<br />
+        disabled: #6c757d<br />
+        link: #0000ee<br />
+        white: #fff<br />
+        black: #000
+      </p>
+      <p class="code">
+        /*Every color (exept white and black) has 9 levels of shading */ <br />
+        <br />
+        text-primary-100 /*up to*/ text-primary-900 <br />
+        bg-primary-100 /*up to*/ bg-primary-900
+      </p>
+      <p class="bg-primary-100 text-white">Hello world!</p>
+      <p class="bg-primary-200 text-white">Hello world!</p>
+      <p class="bg-primary-300 text-white">Hello world!</p>
+      <p class="bg-primary-400 text-white">Hello world!</p>
+      <p class="bg-primary-500 text-white">Hello world!</p>
+      <p class="bg-primary-600 text-white">Hello world!</p>
+      <p class="bg-primary-700 text-white">Hello world!</p>
+      <p class="bg-primary-800 text-white">Hello world!</p>
+      <p class="bg-primary-900 text-white">Hello world!</p>
+      <br />
+      <p class="bg-next-100 text-danger-900">Hello world!</p>
+      <p class="bg-next-200 text-danger-900">Hello world!</p>
+      <p class="bg-next-300 text-danger-900">Hello world!</p>
+      <p class="bg-next-400 text-danger-900">Hello world!</p>
+      <p class="bg-next-500 text-danger-900">Hello world!</p>
+      <p class="bg-next-600 text-danger-900">Hello world!</p>
+      <p class="bg-next-700 text-danger-900">Hello world!</p>
+      <p class="bg-next-800 text-danger-900">Hello world!</p>
+      <p class="bg-next-900 text-danger-900">Hello world!</p>
+      <h3 id="buttons">Buttons</h3>
+      <p class="code">
+        /* Buttons come in: filled, outlined, rounded, edged (standard) */
+        <br />
+        <br />
+        button-rounded-primary <br />
+        button-outline-rounded-primary <br />
+        button-rounded-info <br />
+        button-danger <br />
+        button-rounded-next <br />
+        button-outline-disabled <br />
+        button-disabled <br />
+      </p>
+      <div class="container" style="gap: 1rem">
+        <button class="button-rounded-primary">Click me</button>
+        <button class="button-outline-rounded-primary">Click me</button>
+        <button class="button-rounded-info">Click me</button>
+        <button class="button-danger">Click me</button>
+        <button class="button-rounded-next">Click me</button>
+        <button class="button-outline-disabled">Click me</button>
+        <button class="button-disabled">Click me</button>
+      </div>
+      <h3 id="cards">Cards</h3>
+      <p class="code">
+        /* Card structure has to be the following */ <br />
+        <br />
+        &lt;div class="card"><br />
+        &emsp; &lt;img src="" alt=""> <br />
+        &emsp; &lt;div class="card-content"> <br />
+        &emsp; &emsp; &lt;a href="#" class="card-title">Text&lt;/a> <br />
+        &emsp; &emsp; &lt;p class="card-desc">Text&lt;/p> <br />
+        &emsp; &lt;/div> <br />
+        &lt;/div>
+      </p>
+      <div class="cards-container">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1459679749680-18eb1eb37418?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Amsterdam"
+          />
+          <div class="card-content">
+            <a href="#" class="card-title">Amsterdam</a>
+            <p class="card-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              voluptatum nesciunt, quis mollitia aspernatur molestias quidem,
+              illum cupiditate ducimus velit facilis aut dolor perspiciatis in
+              recusandae officiis sequi qui ipsum!
+            </p>
+          </div>
+        </div>
+        <!---->
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1572602648934-1d98de6dab48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Milan"
+          />
+          <div class="card-content">
+            <a href="#" class="card-title">Milan</a>
+            <p class="card-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              voluptatum nesciunt, quis mollitia aspernatur molestias quidem,
+              illum cupiditate ducimus velit facilis aut dolor perspiciatis in
+              recusandae officiis sequi qui ipsum!
+            </p>
+          </div>
+        </div>
+        <!---->
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+            alt="London"
+          />
+          <div class="card-content">
+            <a href="#" class="card-title">London</a>
+            <p class="card-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              voluptatum nesciunt, quis mollitia aspernatur molestias quidem,
+              illum cupiditate ducimus velit facilis aut dolor perspiciatis in
+              recusandae officiis sequi qui ipsum!
+            </p>
+          </div>
+        </div>
+      </div>
+      <h3 id="form">Form</h3>
+      <p class="code">
+        /* Form control */ <br />
+        <br />
+        &lt;div class="form-control"> <br />
+        &emsp;&lt;label>Username&lt;/label> <br />
+        &emsp;&lt;input type="text" placeholder="Username" /> <br />
+        &lt;/div>
+      </p>
+      <div class="form-control">
+        <label>Username</label>
+        <input type="text" placeholder="Username" />
+      </div>
+      <p class="code">
+        /* Submit */ <br />
+        <br />
+
+        &lt;button class="submit">Submit&lt;/button>
+      </p>
+      <button class="submit" style="max-width: 16rem">Submit</button>
+      <h2 id="configuration">Configuration</h2>
+      <p class="step">
+        In order to configure the library you can pre define the variables in
+        the <b>config.scss</b> file
+      </p>
+      <p class="code">$primary: #222222; //default #007bff</p>
+      <p class="step">In addition to colors, the other default variables</p>
+      <p class="code">
+        // spacing <br />
+        $base-padding: 0.75rem;<br />
+        $base-margin: 0.75rem;<br />
+        <br />
+        // borders<br />
+        $base-border-radius: 5px;<br />
+        $base-border-thickness: 1px;<br />
+        <br />
+        // box-shadow<br />
+        $base-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);<br />
+        <br />
+        // font sizes<br />
+        $base-font-size: 1rem;<br />
+        $font-size-sm: $base-font-size * 0.75;<br />
+        $font-size-lg: $base-font-size * 1.5;<br />
+        $font-size-xl: $base-font-size * 2;<br />
+        $font-size-xxl: $base-font-size * 3;<br />
+        <br />
+        // transition<br />
+        $base-transition-duration: 0.3s;
+      </p>
+    </div>
+  </body>
+</html>
