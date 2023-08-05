@@ -307,12 +307,56 @@ img {
   width: 200px;
   border-radius: 5px;
   padding: 0.75rem;
-  border: none;
+  border: 1px solid #fff;
 }
 .form-control input:focus {
   outline: none;
 }
 .form-control input::placeholder {
+  opacity: 0.5;
+}
+
+.form-control-error {
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: column;
+}
+.form-control-error label {
+  color: #000;
+  font-size: 1rem;
+}
+.form-control-error input {
+  width: 200px;
+  border-radius: 5px;
+  padding: 0.75rem;
+  border: 1px solid #d9534f;
+}
+.form-control-error input:focus {
+  outline: none;
+}
+.form-control-error input::placeholder {
+  opacity: 0.5;
+}
+
+.form-control-succes {
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: column;
+}
+.form-control-succes label {
+  color: #000;
+  font-size: 1rem;
+}
+.form-control-succes input {
+  width: 200px;
+  border-radius: 5px;
+  padding: 0.75rem;
+  border: 1px solid #28a745;
+}
+.form-control-succes input:focus {
+  outline: none;
+}
+.form-control-succes input::placeholder {
   opacity: 0.5;
 }
 

@@ -1,4 +1,4 @@
-.form-control {
+@mixin form-control($state: #fff) {
   display: flex;
   gap: $base-margin;
   flex-direction: column;
@@ -10,7 +10,7 @@
     width: 200px;
     border-radius: $base-border-radius;
     padding: $base-padding;
-    border: none;
+    border: 1px solid $state;
     &:focus {
       outline: none;
     }
@@ -18,6 +18,18 @@
       opacity: 0.5;
     }
   }
+}
+
+.form-control {
+  @include form-control;
+}
+
+.form-control-error {
+  @include form-control($error);
+}
+
+.form-control-succes {
+  @include form-control($succes);
 }
 
 .submit {
